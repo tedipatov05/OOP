@@ -4,6 +4,15 @@
 #include <iostream>
 #include <fstream>
 
+size_t getFileSize(std::ifstream& ifs)
+{
+    size_t currPos = ifs.tellg();
+    ifs.seekg(0, std::ios::end);
+    size_t size = ifs.tellg();
+    ifs.seekg(currPos, std::ios::beg);
+    return size;
+}
+
 int* readArrayFromFile(const char* filename, size_t& size) {
     std::ifstream ifs(filename);
 
@@ -12,7 +21,7 @@ int* readArrayFromFile(const char* filename, size_t& size) {
         return nullptr;
     }
 
-    if (ifs.eof()) {
+    if (!getFileSize(ifs)) {
         std::cout << "The file is empty" << std::endl;
         return nullptr;
     }
