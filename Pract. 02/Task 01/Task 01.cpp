@@ -5,6 +5,7 @@
 #include <fstream>
 
 // Files Theory 
+// ----------------------------------------------------------------------------
 // .tellg() - returns the position of get pointer (ifstream)
 // .tellp() - returns the position of put pointer (ofstream)
 // .seekg(offset, position) - put the get pointer offset positions 
