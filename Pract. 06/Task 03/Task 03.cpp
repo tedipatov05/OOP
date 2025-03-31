@@ -4,6 +4,7 @@
 #pragma warning(disable:4996)
 
 
+
 class Task {
     char* description; 
     unsigned priority;
@@ -41,6 +42,7 @@ public:
     Task(const char* description, unsigned priority, unsigned duration) : status(false){
         setDescription(description);
         setPriority(priority);
+        setDuration(duration);
     }
 
     Task(const Task& other) {
@@ -126,6 +128,19 @@ public:
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Task* task = new Task("who is messi", 4, 10);
+
+    Task task1 = *task;
+
+    std::cout << task1.getDescription();
+
+
+    std::ofstream ofs("output.txt", std::ios::trunc);
+    task1.saveInTextFile(ofs);
+
+    delete task;
+
+
+
 }
 

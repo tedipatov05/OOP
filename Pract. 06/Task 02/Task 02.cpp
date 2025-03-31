@@ -120,6 +120,8 @@ int main()
 	std::cout << stack->Peek() << std::endl;
 	stack->Push(11);
 	std::cout << stack->Peek() << std::endl;
+
+	delete stack;
     
 }
 
