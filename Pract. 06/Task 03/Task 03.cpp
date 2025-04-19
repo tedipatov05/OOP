@@ -4,7 +4,6 @@
 #pragma warning(disable:4996)
 
 
-
 class Task {
     char* description; 
     unsigned priority;
