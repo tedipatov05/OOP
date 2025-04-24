@@ -13,9 +13,24 @@ int main()
 
     string2 += string;
 
-    MyString str = string + string2;
+    MyString str = "****888888888888888888888888";
 
-    str[3] = 't';
-    std::cout <<std::boolalpha << (string2 == stringCopy);
+    str.insert(1, "abcd", 2);
+
+	bool result = str.contains("k");
+
+	MyString res = str.substr(5, 3);
+
+    str.erase(1, 5);
+	str.append("1234567890", 5);
+
+    std::cout << str;
+
+
+   /* std::string str = "****888888888888888888888888";
+
+    str.replace(0, 3, "ab");
+	std::cout << str << std::endl;*/
+    
     
 }

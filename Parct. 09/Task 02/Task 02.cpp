@@ -1,46 +1,34 @@
 ﻿
 #include <iostream>
+#include <vector>
+
 #include "Vector.h"
 
 int main()
 {
     Vector vector(8);
 
-    vector.pushBack(15);
-    vector.pushBack(20);
-    vector.pushBack(30);
-    vector.insertAt(2, 11);
+    vector.push_back(15);
+    vector.push_back(20);
+    vector.push_back(30);
+    vector.insert_at(2, 11);
+
+	vector.insert_range(0, new int[2] { 5, 10 }, 2);
+
+	std::cout << vector[0] << std::endl; // should be 5
+	std::cout << vector[1] << std::endl; // should be 10
+	std::cout << vector[2] << std::endl; // should be 11
+	std::cout << vector[3] << std::endl; // should be 20
+	std::cout << vector[4] << std::endl; // should be 30
+
+
+	/*std::vector<int> vector(8);
+	vector.push_back(15);
+	vector.push_back(20);
 
     vector.clear();
 
-    std::cout << std::boolalpha << vector.isEmpty() << std::endl;
-
-    vector.pushBack(1);
-    vector.pushBack(2);
-
-    vector.insertAt(1, 3);
-
-
-    for (unsigned i = 0; i < vector.getSize(); i++){
-        std::cout << vector[i] << " ";
-    }
-
-    std::cout << std::endl;
-
-    /*try{
-        std::cout << vector.at(5);
-
-    }catch (std::out_of_range& ex){
-        std::cout << ex.what();
-    }*/
-
-    //std::cout << vector[1] << " " << vector[2];
-
-    vector.removeAt(1);
-
-    for (unsigned i = 0; i < vector.getSize(); i++) {
-        std::cout << vector[i] << " ";
-    }
+    std::cout << vector[0];*/
 
 }
 
