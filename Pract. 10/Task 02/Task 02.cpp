@@ -8,6 +8,8 @@
 
 int main()
 {
+    Product product(Product("test"));
+
     Restaurant res("Test1", 8);
     res.addProduct(Product("pasta"));
     res.addProduct(Product("meat"));

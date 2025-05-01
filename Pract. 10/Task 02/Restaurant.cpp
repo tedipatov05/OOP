@@ -27,8 +27,10 @@ Restaurant::Restaurant(const char* name, const Product* products, size_t size) :
 void Restaurant::copyMove(Restaurant&& restaurant){
 	this->_name = restaurant._name;
 	restaurant._name = nullptr;
+
 	this->_products = restaurant._products;
 	restaurant._products = nullptr;
+
 	this->_capacity = restaurant.capacity();
 	this->_size = restaurant.size();
 }
