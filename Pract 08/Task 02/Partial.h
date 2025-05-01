@@ -10,22 +10,12 @@ public:
 
 	void Simplify();
 
-	int getDenominator() const{
-		return this->denominator;
-	}
+	int getDenominator() const;
+	int getNumenator() const;
 
-	int getNumenator() const {
-		return this->numenator;
-	}
+	void setDenominator(int denominator);
 
-	void setDenominator(int denominator) {
-		this->denominator = denominator;
-	}
-
-	void setNumenator(int numenator) {
-		this->numenator = numenator;
-	}
-
+	void setNumenator(int numenator);
 private:
 	int denominator;
 	int numenator;

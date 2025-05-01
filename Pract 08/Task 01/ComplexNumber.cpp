@@ -86,6 +86,14 @@ std::istream& operator>>(std::istream& is, ComplexNumber& complexNumber){
 	return is;
 }
 
+double ComplexNumber::getRealPart() const {
+	return this->real;
+}
+
+double ComplexNumber::getImaginary() const {
+	return this->imaginary;
+}
+
 
 std::ostream& operator<<(std::ostream& os, const ComplexNumber& complexNumber){
 

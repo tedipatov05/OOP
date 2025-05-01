@@ -46,6 +46,22 @@ int Fraction::biggestCommonDivider() const {
 	return a;
 }
 
+int Fraction::getDenominator() const {
+	return this->denominator;
+}
+
+int Fraction::getNumenator() const {
+	return this->numenator;
+}
+
+void Fraction::setDenominator(int denominator) {
+	this->denominator = denominator;
+}
+
+void Fraction::setNumenator(int numenator) {
+	this->numenator = numenator;
+}
+
 Fraction operator+(const Fraction& lhs, const Fraction& rhs){
 	Fraction lhs1(lhs);
 	return lhs1 += rhs;

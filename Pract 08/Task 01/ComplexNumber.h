@@ -15,13 +15,9 @@ public:
 	friend std::istream& operator>>(std::istream& is, ComplexNumber& complexNumber);
 	friend ComplexNumber operator~(const ComplexNumber& complexNumber);
 
-	double getRealPart() const {
-		return this->real;
-	}
+	double getRealPart() const;
 
-	double getImaginary() const {
-		return this->imaginary;
-	}
+	double getImaginary() const;
 
 private:
 	double real;
