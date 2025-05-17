@@ -29,17 +29,17 @@ General::General(size_t capacity) : Soldier(), _size(0), _capacity(capacity) {
 }
 
 General::General(const General& general)
-: Soldier(general), _size(general.size()), _capacity(general.capacity()) {
+	: Soldier(general), _size(general.size()), _capacity(general.capacity()) {
 
 	copyDynamic(general);
 }
 
-General::General(General&& general) noexcept : Soldier(std::move(general)), _size(general.size()), _capacity(general.capacity()){
+General::General(General&& general) noexcept : Soldier(std::move(general)), _size(general.size()), _capacity(general.capacity()) {
 	moveDynamic(std::move(general));
 }
 
-General& General::operator=(const General& general){
-	if (this != &general){
+General& General::operator=(const General& general) {
+	if (this != &general) {
 		Soldier::operator=(general);
 		free();
 		copyDynamic(general);
@@ -50,8 +50,8 @@ General& General::operator=(const General& general){
 	return *this;
 }
 
-General& General::operator=(General&& general) noexcept{
-	if (this != &general){
+General& General::operator=(General&& general) noexcept {
+	if (this != &general) {
 		Soldier::operator=(std::move(general));
 		free();
 		moveDynamic(std::move(general));
@@ -62,35 +62,35 @@ General& General::operator=(General&& general) noexcept{
 	return *this;
 }
 
-General::~General(){
+General::~General() {
 	free();
 }
 
-size_t General::capacity() const{
+size_t General::capacity() const {
 	return this->_capacity;
 }
 
-size_t General::size() const{
+size_t General::size() const {
 	return this->_size;
 }
 
-const char* General::description() const{
+const char* General::description() const {
 	return this->_description;
 }
 const Commander* General::commanders() const {
 	return this->_commanders;
 }
 
-double General::calculateArmySalary() const{
+double General::calculateArmySalary() const {
 	double sum = this->salary();
-	for (size_t i = 0; i < this->size(); i++){
+	for (size_t i = 0; i < this->size(); i++) {
 		sum += this->commanders()[i].calculateBattalionSalary();
 	}
 
 	return sum;
 }
 
-size_t General::calculateArmySumFightingSkill() const{
+size_t General::calculateArmySumFightingSkill() const {
 	size_t sum = this->fightingSkills();
 	for (size_t i = 0; i < this->size(); i++) {
 		sum += this->commanders()[i].calculateSumFightingSkill();
@@ -99,14 +99,13 @@ size_t General::calculateArmySumFightingSkill() const{
 	return sum;
 }
 
-size_t General::calculateArmyAverageFightingSkill() const{
+size_t General::calculateArmyAverageFightingSkill() const {
 	return calculateArmySumFightingSkill() / this->size();
 }
 
-
-
-
-
+void General::saveinFile(std::ostream& ofs) {
+	ofs << this->name() << " " << calculateArmyAverageFightingSkill() << " " << calculateArmySalary() << " " << calculateArmySumFightingSkill();
+}
 
 
 void General::copyDynamic(const General& general) {
@@ -115,7 +114,7 @@ void General::copyDynamic(const General& general) {
 	setString(this->_description, general.description());
 }
 
-void General::moveDynamic(General&& general){
+void General::moveDynamic(General&& general) {
 	this->_commanders = general._commanders;
 	general._commanders = nullptr;
 
@@ -124,17 +123,17 @@ void General::moveDynamic(General&& general){
 
 }
 
-void General::copyCommanders(Commander*& dest, const Commander* src, size_t size){
-	for (size_t i = 0; i < size; i++){
+void General::copyCommanders(Commander*& dest, const Commander* src, size_t size) {
+	for (size_t i = 0; i < size; i++) {
 		dest[i] = src[i];
 	}
 }
 
 
-void General::free(){
+void General::free() {
 	delete[] this->_commanders;
 	delete[] this->_description;
-	
+
 }
 
 

@@ -35,7 +35,7 @@ Soldier::Soldier(const Soldier& soldier) : _age(soldier.age()), _fightingSkills(
 	copyDynamic(soldier);
 }
 
-Soldier::Soldier(Soldier&& soldier){
+Soldier::Soldier(Soldier&& soldier) noexcept{
 	moveDynamic(std::move(soldier));
 }
 

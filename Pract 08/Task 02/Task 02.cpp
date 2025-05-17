@@ -2,11 +2,15 @@
 //
 
 #include <iostream>
+#include "Partial.h"
 
 
 
 int main()
 {
     std::cout << "Hello World!\n";
+
+    Fraction p;
+    
 }
 

@@ -1,4 +1,6 @@
 #pragma once
+#include <fstream>
+
 #include "Commander.h"
 #include "Soldier.h"
 
@@ -25,6 +27,8 @@ public:
 	size_t size() const;
 	const Commander* commanders() const;
 	const char* description() const;
+
+	void saveinFile(std::ostream& ofs);
 
 private:
 	Commander* _commanders;

@@ -128,15 +128,17 @@ void Vector::reserve(size_t newCapacity) {
 		copyInts(temp, this->data(), this->size());
 		delete[] this->_data;
 		this->_data = temp;
+		this->_capacity = newCapacity;
 	}
 }
 
 void Vector::shrink_to_fit() {
 	if (this->size() != this->capacity()) {
 		int* temp = new int[_size];
-		copyInts(temp, this->_data, this->size());
+		copyInts(temp, this->data(), this->size());
 		delete[] _data;
 		this->_data = temp;
+		this->_capacity = this->size();
 	}
 }
 
@@ -168,6 +170,7 @@ const int& Vector::at(size_t index) const {
 	return this->_data[index];
 }
 
+// can just make size = 0
 void Vector::clear() {
 
 	for (size_t i = 0; i < this->size(); i++) {
@@ -227,7 +230,7 @@ void Vector::insert_range(size_t index, const int* values, size_t size) {
 		this->reserve(dataToAllocByStringLen(this->size() + size + 1));
 	}
 
-	for (size_t ind = this->size(); ind >= index; ind--) {
+	for (int ind = this->size(); ind >= (int)index; ind--) {
 		this->_data[ind + size] = this->_data[ind];
 	}
 
@@ -239,8 +242,7 @@ void Vector::insert_range(size_t index, const int* values, size_t size) {
 }
 
 
-void Vector::swap(Vector& other)
-{
+void Vector::swap(Vector& other){
 
 	if (this != &other) {
 		int* tempData = this->_data;
