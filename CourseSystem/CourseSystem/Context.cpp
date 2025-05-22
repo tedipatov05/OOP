@@ -1,9 +1,10 @@
 #include "Context.h"
 
 
-int Context::current_user_id = 0;
+int Context::next_user_id = 100;
 
 Context::Context(const UserRepository& user_repo) : user_repo(user_repo) {
+
 }
 
 Context::Context(const MyString& filename) {

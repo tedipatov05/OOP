@@ -17,7 +17,7 @@ public:
 	Vector<Course> courses;
 	UserType user_type;
 	int user_id;
-	static int current_user_id;
+	static int next_user_id;
 
 	void readFromBinaryFile(const MyString& filename);
 

@@ -6,14 +6,17 @@ class Submission
 {
 public:
 	Submission() = default;
-	Submission(const MyString& user, const MyString& solution, int courseId, int userId);
+	Submission(const MyString& user, const MyString& solution, const MyString& courseName, int userId);
 
 	void print() const;
+
+	void writeToBinaryFile(std::ofstream& ofs) const;
+	void readFromBinaryFile(std::ifstream& ifs);
 
 private:
 	MyString user;
 	MyString solution;
-	int courseId;
+	MyString courseName;
 	int userId;
 
 };

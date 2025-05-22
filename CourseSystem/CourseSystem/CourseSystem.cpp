@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+#include "AddTeacherCommand.h"
 #include "Admin.h"
 #include "LoginCommand.h"
 #include "Message.h"
@@ -44,9 +45,9 @@ int main()
 
 	//UserRepository userRepo;
 
-	//User* admin = new Admin("Alice", "Johnson", "adminpass", 0);
-	//User* teacher1 = new Teacher("John", "Doe", "password123", 1);
-	//User* student = new Student("Jane", "Smith", "password456", 2);
+	User* admin = new Admin("Alice", "Johnson", "adminpass", 0);
+	User* teacher1 = new Teacher("John", "Doe", "password123", 1);
+	User* student = new Student("Jane", "Smith", "password456", 2);
 
 	//userRepo.addUser(admin);
 	//userRepo.addUser(teacher1);
@@ -63,7 +64,7 @@ int main()
 	//User* user3 = repo2.findUser("John");
 	//std::cout << "Found user: " << user3->username() << std::endl;
 
-	Context context = Context("users.dat");
+	/*Context context = Context("users.dat");
 
 	while (true){
 		std::cout << "> ";
@@ -73,19 +74,39 @@ int main()
 
 		MyString command(buffer);
 
-		MyString buff = command.substr(command.find(" ") + 1, command.size());
+		AddTeacherCommand addTeacherCommand(command, context);
 
-		LoginCommand loginCommand(buff, context);
-
-		loginCommand.execute();
+		addTeacherCommand.execute();
 
 
-		
-		
+
 		if (command.isEmpty()){
 			break;
 		}
+	}*/
+
+
+	Course* course = new Course("Course1", "password123");
+	course->addParticipant(student);
+	Assignment* assignment = new Assignment("Assignment1", "Description1");
+	Submission* submission = new Submission("Jane Smith", "Solution1", course->getCourseName(), student->getId());
+	assignment->addSubmission(*submission);
+	course->addAssignment(*assignment);
+
+	std::ofstream ofs("course.dat", std::ios::binary);
+	if (!ofs.is_open()) {
+		return 1;
 	}
+
+	course->writeToBinaryFile(ofs);
+	ofs.close();
+
+	std::ifstream ifs("course.dat", std::ios::binary);
+
+	Course course1;
+	course1.readFromBinaryFile(ifs);
+
+
 
 
 

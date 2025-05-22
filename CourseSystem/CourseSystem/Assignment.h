@@ -15,6 +15,9 @@ public:
 	const MyString& getTaskName() const;
 	void addSubmission(const Submission& submission);
 
+	void writeToBinaryFile(std::ofstream& ofs) const;
+	void readFromBinaryFile(std::ifstream& ifs);
+
 private:
 	MyString _taskName;
 	MyString _description; 

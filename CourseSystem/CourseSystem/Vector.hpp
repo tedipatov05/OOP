@@ -134,7 +134,7 @@ bool Vector<T>::is_empty() const {
 template <typename T>
 void Vector<T>::copyDynamic(const Vector& vector) {
 	this->_data = new T[capacity()];
-	copy(this->_data, vector.data(), this->size());
+	copy(this->_data, vector.data(), vector.size());
 }
 
 template <typename T>

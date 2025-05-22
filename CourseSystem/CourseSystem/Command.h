@@ -1,5 +1,6 @@
 #pragma once
 #include "MyString.h"
+#include "Vector.hpp"
 
 class Command{
 public:
@@ -7,5 +8,7 @@ public:
 	virtual MyString getCommand() const = 0;
 	virtual void execute() = 0;
 	virtual ~Command() = default;
+
+	Vector<MyString> split(const MyString& str, const MyString& delimiter) const;
 };
 

@@ -5,7 +5,8 @@ class User;
 enum class UserType {
 	Teacher,
 	Student,
-	Admin
+	Admin,
+	None	
 };
 
 class Factory

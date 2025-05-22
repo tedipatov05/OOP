@@ -7,7 +7,7 @@ MyString LoginCommand::getCommand() const{
 }
 
 void LoginCommand::execute() {
-	if (this->context.user_id != 0) {
+	if (this->context.user_id != -1) {
 		std::cout << "You are already logged in!" << std::endl;
 		return;
 	}

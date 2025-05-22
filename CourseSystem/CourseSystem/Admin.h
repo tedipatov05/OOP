@@ -14,8 +14,5 @@ public:
 	User* clone() const override;
 	void writeToBinaryFile(std::ofstream& ofs) const override;
 
-private:
-
-	UserRepository users;
 };
 
