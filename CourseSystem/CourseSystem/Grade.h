@@ -1,21 +1,25 @@
 #pragma once
-#include "Assignment.h"
 #include "MyString.h"
-#include "Course.h"
 
 class Grade {
 public:
 
 	Grade() = default;
-	Grade(const Assignment& assignment, const Course& course, const MyString& description, double grade, int userId);
+	Grade(const MyString& assignment, const MyString& course, const MyString& description, double grade, int userId);
 
 
 	void printGrade() const;
+	const MyString& getAssignment() const;
+	const MyString& getCourseName() const;
+	int getUserId() const;
+
+	void writeToBinaryFile(std::ofstream& ofs) const;
+	void readFromBinaryFile(std::ifstream& ifs);
 
 
 private:
-	Assignment _assignment;
-	Course _courseName;
+	MyString _assignment;
+	MyString _courseName;
 	MyString _description;
 	double grade;
 	int _userId;

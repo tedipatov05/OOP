@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="AddStudentCommand.cpp" />
     <ClCompile Include="AddTeacherCommand.cpp" />
+    <ClCompile Include="AddToCourseCommand.cpp" />
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Assignment.cpp" />
     <ClCompile Include="Command.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="AddStudentCommand.h" />
     <ClInclude Include="AddTeacherCommand.h" />
+    <ClInclude Include="AddToCourseCommand.h" />
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Assignment.h" />
     <ClInclude Include="Command.h" />

@@ -15,9 +15,12 @@ public:
 	void addAssignment(const Assignment& assignment); // add an assignment to the course
 
 	const MyString getCourseName() const;
+	const Vector<Assignment>& getAssignments() const;
 
 	void writeToBinaryFile(std::ofstream& ofs) const;
 	void readFromBinaryFile(std::ifstream& ifs);
+
+	bool isUserInCourse(int userId) const; // check if a user is in the course
 
 
 private:

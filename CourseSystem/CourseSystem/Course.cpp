@@ -19,42 +19,42 @@ const MyString Course::getCourseName() const {
 }
 
 void Course::writeToBinaryFile(std::ofstream& ofs) const {
-	size_t sizeUsers = this->users.size();
-	ofs.write((const char*)(&sizeUsers), sizeof(sizeUsers));
-	for (size_t i = 0; i < sizeUsers; ++i) {
-		ofs.write((const char*)(&this->users[i]), sizeof(this->users[i]));
-	}
-
+	
 	this->_courseName.writeToBinaryFile(ofs);
 	this->_password.writeToBinaryFile(ofs);
 
-	size_t size = this->_assignments.size();
+	/*size_t size = this->_assignments.size();
 	ofs.write((const char*)(&size), sizeof(size));
 	for (size_t i = 0; i < size; ++i) {
 		this->_assignments[i].writeToBinaryFile(ofs);
-	}
+	}*/
 }
 
 void Course::readFromBinaryFile(std::ifstream& ifs){
-	size_t sizeUsers = 0;
-	ifs.read((char*)(&sizeUsers), sizeof(sizeUsers));
-	for (size_t i = 0; i < sizeUsers; ++i) {
-		int userId = 0;
-		ifs.read((char*)(&userId), sizeof(userId));
-		this->users.push_back(userId);
-	}
-
+	
 	this->_courseName.readFromBinaryFile(ifs);
 	this->_password.readFromBinaryFile(ifs);
 
-	size_t size = 0;
+	/*size_t size = 0;
 	ifs.read((char*)(&size), sizeof(size));
 
 	for (size_t i = 0; i < size; ++i) {
 		Assignment assignment;
 		assignment.readFromBinaryFile(ifs);
 		this->_assignments.push_back(assignment);
-	}
+	}*/
 }
 
+bool Course::isUserInCourse(int userId) const {
+	for (size_t i = 0; i < this->users.size(); ++i) {
+		if (this->users[i] == userId) {
+			return true;
+		}
+	}
+	return false;
+}
+
+const Vector<Assignment>& Course::getAssignments() const {
+	return this->_assignments;
+}
 

@@ -5,6 +5,7 @@
 #include <string>
 
 #include "AddTeacherCommand.h"
+#include "AddToCourseCommand.h"
 #include "Admin.h"
 #include "LoginCommand.h"
 #include "Message.h"
@@ -45,8 +46,8 @@ int main()
 
 	//UserRepository userRepo;
 
-	User* admin = new Admin("Alice", "Johnson", "adminpass", 0);
-	User* teacher1 = new Teacher("John", "Doe", "password123", 1);
+	//User* admin = new Admin("Alice", "Johnson", "adminpass", 0);
+	//User* teacher1 = new Teacher("John", "Doe", "password123", 1);
 	User* student = new Student("Jane", "Smith", "password456", 2);
 
 	//userRepo.addUser(admin);
@@ -57,14 +58,8 @@ int main()
 
 	//userRepo.writeToBinaryFile("users.dat");
 
-	//UserRepository repo2;
-	//repo2.readFromBinaryFile("users.dat");
 
-	//std::cout << "Users in repo2:" << std::endl;
-	//User* user3 = repo2.findUser("John");
-	//std::cout << "Found user: " << user3->username() << std::endl;
-
-	/*Context context = Context("users.dat");
+	Context context = Context();
 
 	while (true){
 		std::cout << "> ";
@@ -74,41 +69,45 @@ int main()
 
 		MyString command(buffer);
 
-		AddTeacherCommand addTeacherCommand(command, context);
+		AddToCourseCommand addToCourseCommand(command, context);
 
-		addTeacherCommand.execute();
-
+		addToCourseCommand.execute();
 
 
 		if (command.isEmpty()){
 			break;
 		}
-	}*/
-
-
-	Course* course = new Course("Course1", "password123");
-	course->addParticipant(student);
-	Assignment* assignment = new Assignment("Assignment1", "Description1");
-	Submission* submission = new Submission("Jane Smith", "Solution1", course->getCourseName(), student->getId());
-	assignment->addSubmission(*submission);
-	course->addAssignment(*assignment);
-
-	std::ofstream ofs("course.dat", std::ios::binary);
-	if (!ofs.is_open()) {
-		return 1;
 	}
 
-	course->writeToBinaryFile(ofs);
-	ofs.close();
 
-	std::ifstream ifs("course.dat", std::ios::binary);
+	//Course* course = new Course("Course1", "password123");
+	////course->addParticipant(student);
+	//Assignment* assignment = new Assignment("Assignment1", "Description1", course->getCourseName());
+	//Submission* submission = new Submission("Jane Smith", "Solution1", course->getCourseName(), assignment->getTaskName() ,student->getId());
+	//Grade* grade = new Grade(assignment->getTaskName(),submission->getCourseName(), "Good work", 5.50, student->getId());
+	///*submission->setGrade(*grade);
+	//assignment->addSubmission(*submission);
 
-	Course course1;
-	course1.readFromBinaryFile(ifs);
+	//course->addAssignment(*assignment);*/
 
 
+	//std::ofstream ofs("course.dat", std::ios::binary);
+	//if (!ofs.is_open()) {
+	//	return 1;
+	//}
 
+	//course->writeToBinaryFile(ofs);
+	//ofs.close();
 
+	//std::ofstream ofsAssignments(ASSIGNMENTS_FILE.data(), std::ios::binary);
+	//assignment->writeToBinaryFile(ofsAssignments);
+	//ofsAssignments.close();
 
+	//std::ofstream ofsSubmissions(SUBMISSIONS_FILE.data(), std::ios::binary);
+	//submission->writeToBinaryFile(ofsSubmissions);
+	//ofsSubmissions.close();
+	//std::ofstream ofsGrades(GRADES_FILE.data(), std::ios::binary);
+	//grade->writeToBinaryFile(ofsGrades);
+	//ofsGrades.close();
 }
 

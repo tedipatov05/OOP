@@ -54,6 +54,8 @@ public:
 	size_t size() const;
 	size_t capacity() const;
 
+	bool contains(const T& value) const;
+
 private:
 	T* _data;
 	size_t _size;
@@ -64,9 +66,6 @@ private:
 	void copy(T*& dest, const T* source, size_t size);
 
 };
-
-
-
 
 template <typename T>
 void Vector<T>::copy(T*& dest, const T* source, size_t size) {
@@ -301,6 +300,16 @@ void Vector<T>::swap(Vector& other) {
 		throw std::invalid_argument("Cannot swap with itself");
 	}
 
+}
+
+template <typename T>
+bool Vector<T>::contains(const T& value) const {
+	for (size_t i = 0; i < this->size(); i++) {
+		if (this->_data[i] == value) {
+			return true;
+		}
+	}
+	return false;
 }
 
 

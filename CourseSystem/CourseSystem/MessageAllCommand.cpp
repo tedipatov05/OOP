@@ -2,8 +2,10 @@
 
 #include <iostream>
 
-MessageAllCommand::MessageAllCommand(const MyString& buffer, Context& system) : buffer(buffer), context(system){
+Vector<MyString> MessageAllCommand::usernames;
 
+MessageAllCommand::MessageAllCommand(const MyString& buffer, Context& system) : buffer(buffer), context(system) {
+	setUsernames();
 }
 
 MyString MessageAllCommand::getCommand() const {
@@ -17,7 +19,7 @@ void MessageAllCommand::execute() {
 		return;
 	}
 	User* admin = context.user_repo.getUser(context.user_id);
-	if (!admin){
+	if (!admin) {
 		std::cout << "Admin not found" << std::endl;
 	}
 
@@ -25,17 +27,19 @@ void MessageAllCommand::execute() {
 		std::cout << "Only admin can send messages to all students." << std::endl;
 		return;
 	}
-	
 
-	for (size_t i = 0; i < context.user_repo.getSize(); i++){
-		if (i == context.user_id){
+	Message msg = Message(messageContent, usernames, admin->username());
+
+	for (size_t i = 0; i < context.user_repo.getSize(); i++) {
+		if (i == context.user_id) {
 			continue; // Skip the admin
 		}
 
 		User* user = context.user_repo.getUser(i);
-		Message msg = Message(messageContent, user->username(), admin->username());
 		user->receiveMessage(msg);
 	}
+
+
 }
 
 MyString MessageAllCommand::getMessageContentFromBuffer() const {
@@ -43,7 +47,23 @@ MyString MessageAllCommand::getMessageContentFromBuffer() const {
 	if (tokens.size() < 2) {
 		return "";
 	}
-	
+
 	return tokens[1];
+}
+
+void MessageAllCommand::setUsernames() const {
+	if (this->usernames.size() > 0) {
+		return;
+	}
+
+	for (size_t i = 0; i < context.user_repo.getSize(); i++) {
+		if (i == this->context.user_id) {
+			continue; // Skip the admin
+		}
+		User* user = context.user_repo.getUser(i);
+
+		this->usernames.push_back(user->username());
+	}
+
 }
 

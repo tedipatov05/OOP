@@ -4,9 +4,9 @@
 
 
 
-Assignment::Assignment(const MyString& taskName, const MyString& description) {
-	this->_taskName = taskName;
-	this->_description = description;
+Assignment::Assignment(const MyString& taskName, const MyString& description, const MyString& courseName)
+	: _taskName(taskName), _description(description), _courseName(courseName) {
+
 }
 
 void Assignment::print() const {
@@ -22,6 +22,7 @@ void Assignment::addSubmission(const Submission& submission) {
 }
 
 void Assignment::writeToBinaryFile(std::ofstream& ofs) const {
+	this->_courseName.writeToBinaryFile(ofs);
 	this->_taskName.writeToBinaryFile(ofs);
 	this->_description.writeToBinaryFile(ofs);
 
@@ -33,15 +34,24 @@ void Assignment::writeToBinaryFile(std::ofstream& ofs) const {
 }
 
 void Assignment::readFromBinaryFile(std::ifstream& ifs) {
+	this->_courseName.readFromBinaryFile(ifs);
 	this->_taskName.readFromBinaryFile(ifs);
 	this->_description.readFromBinaryFile(ifs);
 
 	size_t size = 0;
 	ifs.read((char*)(&size), sizeof(size));
-	
+
 	for (size_t i = 0; i < size; ++i) {
 		Submission submission;
 		submission.readFromBinaryFile(ifs);
 		this->_submissions.push_back(submission);
 	}
+}
+
+const MyString& Assignment::getCourseName() const {
+	return this->_courseName;
+}
+
+const Vector<Submission>& Assignment::getSubmissions() const {
+	return this->_submissions;
 }

@@ -9,10 +9,13 @@ public:
 	MyString getCommand() const override;
 	MessageAllCommand(const MyString& buffer, Context& system);
 
+	static Vector<MyString> usernames;
+
 private:
 	Context& context;
 	MyString buffer;
 
 	MyString getMessageContentFromBuffer() const;
+	void setUsernames() const;
 };
 
