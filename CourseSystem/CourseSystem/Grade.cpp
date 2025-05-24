@@ -8,7 +8,7 @@ Grade::Grade(const MyString& assignment, const MyString& course, const MyString&
 
 void Grade::printGrade() const {
 
-	std::cout << " | " << _assignment << " | " << grade << " | " << _description << std::endl;
+	std::cout << _courseName << " | " << _assignment << " | " << grade << " | " << _description << std::endl;
 }
 
 const MyString& Grade::getAssignment() const {

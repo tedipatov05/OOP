@@ -131,15 +131,18 @@
     <ClCompile Include="AddTeacherCommand.cpp" />
     <ClCompile Include="AddToCourseCommand.cpp" />
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="AssignHomeworkCommand.cpp" />
     <ClCompile Include="Assignment.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CourseSystem.cpp" />
     <ClCompile Include="CreateCourseCommand.cpp" />
+    <ClCompile Include="EnrollCommand.cpp" />
     <ClCompile Include="Grade.cpp" />
     <ClCompile Include="LoginCommand.cpp" />
     <ClCompile Include="LogoutCommand.cpp" />
     <ClCompile Include="Mailbox.cpp" />
+    <ClCompile Include="MailboxCommand.cpp" />
     <ClCompile Include="Message.cpp" />
     <ClCompile Include="MessageAllCommand.cpp" />
     <ClCompile Include="MessageTime.cpp" />
@@ -147,26 +150,32 @@
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="Submission.cpp" />
     <ClCompile Include="Context.cpp" />
+    <ClCompile Include="SubmitAssignmentCommand.cpp" />
     <ClCompile Include="Teacher.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserFactory.cpp" />
     <ClCompile Include="UserRepository.cpp" />
     <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="ViewGradesCommand.cpp" />
+    <ClCompile Include="ViewSubmissionsCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddStudentCommand.h" />
     <ClInclude Include="AddTeacherCommand.h" />
     <ClInclude Include="AddToCourseCommand.h" />
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="AssignHomeworkCommand.h" />
     <ClInclude Include="Assignment.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Course.h" />
     <ClInclude Include="CreateCourseCommand.h" />
+    <ClInclude Include="EnrollCommand.h" />
     <ClInclude Include="Grade.h" />
     <ClInclude Include="LoginCommand.h" />
     <ClInclude Include="LogoutCommand.h" />
     <ClInclude Include="Mailbox.h" />
+    <ClInclude Include="MailboxCommand.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="MessageAllCommand.h" />
     <ClInclude Include="MessageTime.h" />
@@ -174,12 +183,15 @@
     <ClInclude Include="Student.h" />
     <ClInclude Include="Submission.h" />
     <ClInclude Include="Context.h" />
+    <ClInclude Include="SubmitAssignmentCommand.h" />
     <ClInclude Include="Teacher.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserFactory.h" />
     <ClInclude Include="UserRepository.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Vector.hpp" />
+    <ClInclude Include="ViewGradesCommand.h" />
+    <ClInclude Include="ViewSubmissionsCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,7 +20,9 @@ public:
 	void writeToBinaryFile(std::ofstream& ofs) const;
 	void readFromBinaryFile(std::ifstream& ifs);
 
-	bool isUserInCourse(int userId) const; // check if a user is in the course
+	bool isUserInCourse(int userId) const;
+	bool isPasswordCorrect(const MyString& password) const;
+
 
 
 private:

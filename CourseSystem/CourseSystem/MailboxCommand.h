@@ -2,11 +2,11 @@
 #include "Command.h"
 #include "Context.h"
 
-class LogoutCommand : public Command{
+class MailboxCommand : public Command{
 public:
-	void execute() override;
+	MailboxCommand(const MyString& buffer, Context& system);
 	MyString getCommand() const override;
-	LogoutCommand(const MyString& buffer, Context& system);
+	void execute() override;
 
 //private:
 //	Context& context;

@@ -58,3 +58,7 @@ const Vector<Assignment>& Course::getAssignments() const {
 	return this->_assignments;
 }
 
+bool Course::isPasswordCorrect(const MyString& password) const {
+	return this->_password == password;
+}
+

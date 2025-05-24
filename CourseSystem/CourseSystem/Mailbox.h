@@ -17,6 +17,9 @@ public:
 
 	void readFromBinaryFile(std::ifstream& ifs);
 	void writeToBinaryFile(std::ofstream& ofs) const;
+	const Message& operator[](size_t index) const;
+
+	size_t getSize() const;
 
 private:
 	Message* messages;

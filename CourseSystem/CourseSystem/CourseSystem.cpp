@@ -50,6 +50,8 @@ int main()
 	//User* teacher1 = new Teacher("John", "Doe", "password123", 1);
 	User* student = new Student("Jane", "Smith", "password456", 2);
 
+
+
 	//userRepo.addUser(admin);
 	//userRepo.addUser(teacher1);
 	//userRepo.addUser(student);
@@ -59,25 +61,25 @@ int main()
 	//userRepo.writeToBinaryFile("users.dat");
 
 
-	Context context = Context();
+	//Context context = Context();
 
-	while (true){
-		std::cout << "> ";
-		char buffer[1024];
+	//while (true){
+	//	std::cout << "> ";
+	//	char buffer[1024];
 
-		std::cin.getline(buffer, 1024);
+	//	std::cin.getline(buffer, 1024);
 
-		MyString command(buffer);
+	//	MyString command(buffer);
 
-		AddToCourseCommand addToCourseCommand(command, context);
+	//	AddToCourseCommand addToCourseCommand(command, context);
 
-		addToCourseCommand.execute();
+	//	addToCourseCommand.execute();
 
 
-		if (command.isEmpty()){
-			break;
-		}
-	}
+	//	if (command.isEmpty()){
+	//		break;
+	//	}
+	//}
 
 
 	//Course* course = new Course("Course1", "password123");

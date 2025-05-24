@@ -5,7 +5,7 @@
 #include "Teacher.h"
 #include "Constants.h"
 
-AddTeacherCommand::AddTeacherCommand(const MyString& buffer, Context& system) : buffer(buffer), context(system){
+AddTeacherCommand::AddTeacherCommand(const MyString& buffer, Context& system) : Command(buffer, system){
 	
 }
 

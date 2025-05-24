@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-AddToCourseCommand::AddToCourseCommand(const MyString& buffer, Context& context) : buffer(buffer), context(context){
+AddToCourseCommand::AddToCourseCommand(const MyString& buffer, Context& context) :Command(buffer, context){
 	
 }
 
@@ -42,6 +42,8 @@ void AddToCourseCommand::execute() {
 	}
 	course->addParticipant(userToAdd);
 
+	saveAddedUser(USERS_COURSES_FILE, courseName, userId);
+
 }
 
 MyString AddToCourseCommand::getCourseNameFromBuffer() const {
@@ -59,5 +61,19 @@ MyString AddToCourseCommand::getUserIdFromBuffer() const {
 	}
 	return tokens[2];
 }
+
+void AddToCourseCommand::saveAddedUser(const MyString& filename, const MyString& courseName, int userId) const{
+	std::ofstream ofs(filename.data(), std::ios::binary | std::ios::app);
+	if (!ofs.is_open()){
+		return;
+	}
+
+	ofs.write((const char*)&userId, sizeof(userId));
+	courseName.writeToBinaryFile(ofs);
+	ofs.close();
+
+
+}
+
 
 

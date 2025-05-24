@@ -12,12 +12,13 @@ public:
 	MyString getCommand() const override;
 
 private:
-	Context& context;
-	MyString buffer;
+	/*Context& context;
+	MyString buffer;*/
 
 	MyString getCourseNameFromBuffer() const;
 	MyString getUserIdFromBuffer() const;
 	int findCourseToAdd(const MyString& courseName) const;
+	void saveAddedUser(const MyString& filename, const MyString& courseName, int userId) const;
 
 };
 

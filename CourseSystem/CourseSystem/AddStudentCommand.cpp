@@ -4,7 +4,7 @@
 
 #include "Student.h"
 
-AddStudentCommand::AddStudentCommand(const MyString& buffer, Context& system) : context(system), buffer(buffer) {
+AddStudentCommand::AddStudentCommand(const MyString& buffer, Context& system) : Command(buffer, system){
 }
 
 MyString AddStudentCommand::getCommand() const {

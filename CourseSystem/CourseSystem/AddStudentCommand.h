@@ -10,8 +10,8 @@ public:
 	void execute() override;
 
 private:
-	Context& context;
-	MyString buffer;
+	/*Context& context;
+	MyString buffer;*/
 
 	MyString getPasswordFromBuffer() const;
 	MyString getFirstNameFromBuffer() const;

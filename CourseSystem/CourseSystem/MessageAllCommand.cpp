@@ -4,7 +4,7 @@
 
 Vector<MyString> MessageAllCommand::usernames;
 
-MessageAllCommand::MessageAllCommand(const MyString& buffer, Context& system) : buffer(buffer), context(system) {
+MessageAllCommand::MessageAllCommand(const MyString& buffer, Context& system) : Command(buffer, system) {
 	setUsernames();
 }
 

@@ -107,6 +107,14 @@ void Mailbox::writeToBinaryFile(std::ofstream& ofs) const {
 	ofs.close();
 }
 
+size_t Mailbox::getSize() const {
+	return this->size;
+}
+
+const Message& Mailbox::operator[](size_t index) const {
+	return this->messages[index];
+}
+
 
 
 

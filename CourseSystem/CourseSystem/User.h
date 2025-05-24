@@ -20,10 +20,12 @@ public:
 	MyString username() const;
 	int getId() const;
 	const MyString& getPassword() const;
+	const Mailbox& getMailbox() const;
 
 	virtual UserType role() const = 0;
 	void receiveMessage(const Message& message);
 	virtual User* clone() const = 0;
+
 
 	virtual void writeToBinaryFile(std::ofstream& ofs) const = 0;
 	virtual void readFromBinaryFile(std::ifstream& ifs);

@@ -30,7 +30,7 @@ void LoginCommand::execute() {
 
 }
 
-LoginCommand::LoginCommand(const MyString& buffer, Context& context): context(context), buffer(buffer)
+LoginCommand::LoginCommand(const MyString& buffer, Context& context): Command(buffer, context)
 {
 }
 

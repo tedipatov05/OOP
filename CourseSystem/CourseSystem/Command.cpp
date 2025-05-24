@@ -1,5 +1,8 @@
 #include "Command.h"
 
+Command::Command(const MyString& buffer, Context& ctx)
+	: buffer(buffer), context(ctx) {}
+
 Vector<MyString> Command::split(const MyString& str, const MyString& delimiter) const {
 	Vector<MyString> result;
 	size_t start = 0;

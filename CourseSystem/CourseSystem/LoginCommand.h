@@ -13,8 +13,8 @@ public:
 	void execute() override;
 
 private:
-	Context& context;
-	MyString buffer;
+	//Context& context;
+	//MyString buffer;
 
 	int getIdFromBuffer() const;
 	MyString getPasswordFromBuffer() const;

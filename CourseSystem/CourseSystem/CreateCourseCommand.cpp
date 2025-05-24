@@ -2,9 +2,7 @@
 #include "Constants.h"
 #include <iostream>
 
-CreateCourseCommand::CreateCourseCommand(const MyString& buffer, Context& system)
-	: buffer(buffer), context(system)
-{
+CreateCourseCommand::CreateCourseCommand(const MyString& buffer, Context& system) : Command(buffer, system){
 }
 
 MyString CreateCourseCommand::getCommand() const {

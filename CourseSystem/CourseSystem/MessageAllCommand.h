@@ -12,8 +12,8 @@ public:
 	static Vector<MyString> usernames;
 
 private:
-	Context& context;
-	MyString buffer;
+	/*Context& context;
+	MyString buffer;*/
 
 	MyString getMessageContentFromBuffer() const;
 	void setUsernames() const;

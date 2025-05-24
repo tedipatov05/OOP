@@ -45,6 +45,10 @@ const MyString& User::getPassword() const {
 	return this->password;
 }
 
+const Mailbox& User::getMailbox() const {
+	return this->mailbox;
+}
+
 
 
 
